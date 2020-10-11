@@ -19,23 +19,23 @@ sudo rpi-update
 
 ### Code - OSS (Visual Studio Code - Community Edition, Unofficial)
 
-For more information, refer to [Code - OSS](../code/README.md) page.
+For more information, refer to [Code - OSS](./code/README.md) page.
 
 ### Chromium (Media Edition)
 
-For more information, refer to [Chromium (Media Edition)](../chromium-media-edition/README.md) page.
+For more information, refer to [Chromium (Media Edition)](./chromium-media-edition/README.md) page.
 
 ### Deluged
 
-For more information, refer to [Deluged](../deluged/README.md) page.
+For more information, refer to [Deluged](./deluged/README.md) page.
 
 ### OpenCV
 
-For more information, refer to [OpenCV](../opencv/README.md) page.
+For more information, refer to [OpenCV](./opencv/README.md) page.
 
 ### PowerShell Core
 
-For more information, refer to [PowerShell Core](../pwsh/README.md) page.
+For more information, refer to [PowerShell Core](./pwsh/README.md) page.
 
 ### Productivity Essentials
 
@@ -51,7 +51,7 @@ sudo apt install -y synaptic
 
 ### Uncomplicated Firewall
 
-For more information, refer to [Uncomplicated Firewall](../ufw/README.md) page.
+For more information, refer to [Uncomplicated Firewall](./ufw/README.md) page.
 
 ### uGet
 
@@ -63,8 +63,8 @@ sudo apt install -y uget
 
 ### XFCE4
 
-For more information, refer to [XFCE4](../xfce4/README.md) page.
+For more information, refer to [XFCE4](./xfce4/README.md) page.
 
 ### Z Shell
 
-For more information, refer to [Z Shell](../zsh/README.md) page.
+For more information, refer to [Z Shell](./zsh/README.md) page.
