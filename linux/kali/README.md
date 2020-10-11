@@ -15,3 +15,7 @@ sudo reboot
 ### Productivity Essentials
 
 For more information, refer to [Productivity Essentials](../shared/productivity-essentials/README.md) page.
+
+### Z Shell
+
+For more information, refer to [Z Shell](../shared/zsh/README.md) page.
