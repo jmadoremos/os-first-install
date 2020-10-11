@@ -2,7 +2,9 @@
 
 This repository contains a set of instructions and executables to setup a newly installed operating system.
 
-* [Raspberry Pi OS](./rpi/README.md)
+**Linux**
+
+* [Raspberry Pi OS](./linux/rpi/README.md)
 
 ## License
 
