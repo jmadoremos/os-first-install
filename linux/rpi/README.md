@@ -29,25 +29,17 @@ For more information, refer to [Chromium (Media Edition)](../chromium-media-edit
 
 For more information, refer to [Deluged](../deluged/README.md) page.
 
-### FiraCode
-
-A monospaced font with programming ligatures.
-
-```bash
-sudo apt install -y fonts-firacode 
-```
-
-### Guake
-
-A drop-down terminal made for GNOME desktop environment.
-
-```bash
-sudo apt install -y guake 
-```
-
 ### OpenCV
 
 For more information, refer to [OpenCV](../opencv/README.md) page.
+
+### PowerShell Core
+
+For more information, refer to [PowerShell Core](../pwsh/README.md) page.
+
+### Productivity Essentials
+
+For more information, refer to [Productivity Essentials](../shared/productivity-essentials/README.md) page.
 
 ### Synaptic 
 
