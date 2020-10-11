@@ -4,6 +4,8 @@ This repository contains a set of instructions and executables to setup a newly 
 
 **Linux**
 
+* [Kali Linux](./linux/kali/README.md)
+
 * [Raspberry Pi OS](./linux/rpi/README.md)
 
 **Windows**
