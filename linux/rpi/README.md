@@ -67,4 +67,4 @@ For more information, refer to [XFCE4](./xfce4/README.md) page.
 
 ### Z Shell
 
-For more information, refer to [Z Shell](./zsh/README.md) page.
+For more information, refer to [Z Shell](../shared/zsh/README.md) page.

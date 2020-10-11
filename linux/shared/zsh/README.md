@@ -1,4 +1,4 @@
-# Z Shell | Raspberry Pi OS
+# Z Shell | Linux
 
 An alternative shell to bash.
 
