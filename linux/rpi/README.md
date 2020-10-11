@@ -17,29 +17,17 @@ sudo rpi-update
 ```
 ## Installing essentials
 
-### Code - OSS (a.k.a. Visual Studio Code - Community Edition, Unofficial)
+### Code - OSS (Visual Studio Code - Community Edition, Unofficial)
 
-An integrated development environment.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/code/install.sh | sudo bash
-```
+For more information, refer to [Code - OSS](../code/README.md) page.
 
 ### Chromium (Media Edition)
 
-A web browser with DRM-enabled.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/chromium-media-edition/install.sh | sudo bash
-```
+For more information, refer to [Chromium (Media Edition)](../chromium-media-edition/README.md) page.
 
 ### Deluged
 
-A torrent client and console application.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/deluged/install.sh | sudo bash
-```
+For more information, refer to [Deluged](../deluged/README.md) page.
 
 ### FiraCode
 
@@ -59,11 +47,7 @@ sudo apt install -y guake
 
 ### OpenCV
 
-An open-source set of libraries for image processing using Python.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/opencv/install.sh | sudo bash
-```
+For more information, refer to [OpenCV](../opencv/README.md) page.
 
 ### Synaptic 
 
@@ -73,13 +57,9 @@ An alternative package manager to **Add/Remove programs**.
 sudo apt install -y synaptic
 ```
 
-### ufw
+### Uncomplicated Firewall
 
-An easy-to-configure firewall.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/ufw/install.sh | sudo bash
-```
+For more information, refer to [Uncomplicated Firewall](../ufw/README.md) page.
 
 ### uGet
 
@@ -91,20 +71,8 @@ sudo apt install -y uget
 
 ### XFCE4
 
-An alternative desktop environment to LXDE.
-
-> This replaces LXDE permanently.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/xfce4/install.sh | sudo bash
-```
+For more information, refer to [XFCE4](../xfce4/README.md) page.
 
 ### Z Shell
 
-An alternative shell to bash.
-
-> This replaces bash as the default shell.
-
-```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/rpi/zsh/install.sh | sudo bash
-```
+For more information, refer to [Z Shell](../zsh/README.md) page.
