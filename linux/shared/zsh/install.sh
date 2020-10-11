@@ -11,5 +11,5 @@ echo " done"
 
 echo -n "[] Configuring zsh as default shell..."
 zsh &> /dev/null
-sudo chsh -s /bin/zsh pi &> /dev/null
+sudo chsh -s /bin/zsh &> /dev/null
 echo " done"
