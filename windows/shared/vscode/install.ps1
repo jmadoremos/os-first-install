@@ -12,8 +12,8 @@ code --install-extension eamodio.gitlens --force
 code --install-extension EditorConfig.editorconfig --force
 
 Write-Host "[] Installing python extensions..."
-code --install-extension ms-python.python
+code --install-extension ms-python.python --force
 
 Write-Host "[] Installing nodejs extensions..."
-code --install-extension eg2.vscode-npm-script
-code --install-extension dbaeumer.vscode-eslint
+code --install-extension eg2.vscode-npm-script --force
+code --install-extension dbaeumer.vscode-eslint --force
