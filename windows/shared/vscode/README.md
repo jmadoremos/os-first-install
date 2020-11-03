@@ -9,14 +9,20 @@ A cross-platform integrated development environment with debugging capabilities,
 * Visual Studio Code Extensions
 
     * Generic
+    
+        * VSCode Icons
+        
+        * Night Owl
 
-        * Editor Config
+        * Better Comments
 
-        * Night Owl theme
+        * Code SpellChecker 
 
         * Visual Studio IntelliCode
 
-        * VSCode Icons
+        * Gitlens
+
+        * Editor Config
 
     * Python
 
