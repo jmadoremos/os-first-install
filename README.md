@@ -6,6 +6,8 @@ This repository contains a set of instructions and executables to setup a newly 
 
 * [Kali Linux](./linux/kali/README.md)
 
+* [Kali Linux for Raspberry Pi](./linux/kali-pi/README.md)
+
 * [Raspberry Pi OS](./linux/rpi/README.md)
 
 **Windows**
