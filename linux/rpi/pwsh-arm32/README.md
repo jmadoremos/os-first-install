@@ -5,5 +5,5 @@ A cross-platform task automation and configuration management framework, consist
 ## Installation
 
 ```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/rpi/pwsh/install.sh | bash
+curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/rpi/pwsh-arm32/install.sh | bash
 ```
