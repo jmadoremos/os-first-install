@@ -35,7 +35,7 @@ For more information, refer to [OpenCV](./opencv/README.md) page.
 
 ### PowerShell Core
 
-For more information, refer to [PowerShell Core](./pwsh/README.md) page.
+For more information, refer to [PowerShell Core (arm32)](../shared/pwsh-arm32/README.md) page.
 
 ### Productivity Essentials
 
