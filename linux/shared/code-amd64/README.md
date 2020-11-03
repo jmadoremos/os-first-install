@@ -1,6 +1,6 @@
 # Visual Studio Code | Linux (amd64)
 
-The official Visual Studio Code for linux.
+A cross-platform integrated development environment with debugging capabilities, syntax highlighting, intelligent code completion, and native support for git.
 
 ## Installation
 
