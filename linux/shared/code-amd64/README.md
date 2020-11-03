@@ -2,6 +2,26 @@
 
 A cross-platform integrated development environment with debugging capabilities, syntax highlighting, intelligent code completion, and native support for git.
 
+**Includes**
+
+* Visual Studio Code
+
+* Visual Studio Code Extensions
+
+    * VSCode Icons
+    
+    * Night Owl
+
+    * Better Comments
+
+    * Code SpellChecker 
+
+    * Visual Studio IntelliCode
+
+    * Gitlens
+
+    * Editor Config
+
 ## Installation
 
 ```bash

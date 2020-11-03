@@ -18,3 +18,13 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" 
 echo -n "[] Installing visual studio code..."
 sudo apt install -y code &> /dev/null
 echo " done"
+
+echo -n "[] Installing visual studio code extensions..."
+code --install-extension vscode-icons-team.vscode-icons --force &> /dev/null
+code --install-extension sdras.night-owl --force &> /dev/null
+code --install-extension aaron-bond.better-comments --force &> /dev/null
+code --install-extension streetsidesoftware.code-spell-checker --force &> /dev/null
+code --install-extension visualstudioexptteam.vscodeintellicode --force &> /dev/null
+code --install-extension eamodio.gitlens --force &> /dev/null
+code --install-extension EditorConfig.editorconfig --force &> /dev/null
+echo " done"
