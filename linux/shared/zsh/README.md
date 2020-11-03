@@ -7,5 +7,5 @@ An alternative shell to bash.
 ## Installation
 
 ```bash
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/rpi/zsh/install.sh | bash
+curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/zsh/install.sh | bash
 ```
