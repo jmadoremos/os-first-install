@@ -14,7 +14,7 @@ curl https://github.com/PowerShell/PowerShell/releases/download/v7.1.0-rc.1/powe
 
 echo -n "[] Installing package..."
 mkdir ~/powershell &> /dev/null
-tar -xvf ./Downloads/powershell-7xx-linux-arm32.tar.gz -C ~/powershell &> /dev/null
+tar -xvf ~/Downloads/powershell-7xx-linux-arm32.tar.gz -C ~/powershell &> /dev/null
 echo " done"
 
 echo -n "[] Performing cleanup..."
