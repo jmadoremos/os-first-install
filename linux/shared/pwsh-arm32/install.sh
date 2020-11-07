@@ -18,5 +18,5 @@ tar -xvf ./Downloads/powershell-7xx-linux-arm32.tar.gz -C ~/powershell &> /dev/n
 echo " done"
 
 echo -n "[] Performing cleanup..."
-rm ./Downloads/powershell-7xx-linux-arm32.tar.gz
+rm ~/Downloads/powershell-7xx-linux-arm32.tar.gz
 echo " done"
