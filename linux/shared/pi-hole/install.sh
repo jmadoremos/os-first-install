@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 # Install docker
 echo -n "[] Running apt update..."
 sudo apt clean &> /dev/null
@@ -10,9 +12,25 @@ echo -n "[] Installing docker as pre-requisite..."
 sudo apt install -y docker.io &> /dev/null
 echo " done"
 
+# Install virtualenv
+echo -n "[] Installing virtualenv as pre-requisite..."
+pip install virtualenv &> /dev/null
+echo " done"
+
 # Create ~/pi-hole directory if not exists
 echo "[] Creating ~/pi-hole directory, if not exists..."
 mkdir ~/pi-hole &> /dev/null
+
+echo "[] Configuring ~/pi-hole..."
+cd ~/pi-hole &> /dev/null
+virtualenv venv --no-site-packages
+source venv/bin/activate
+
+# Install docker-compose
+echo -n "[] Installing docker-compose as pre-requisite..."
+pip install docker-compose &> /dev/null
+deactivate
+echo " done"
 
 # Download latest docker-compose.yml
 echo "[] Downloading latest docker-compose.yml to ~/pi-hole..."
