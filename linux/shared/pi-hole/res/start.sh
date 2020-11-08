@@ -5,7 +5,7 @@ if [ ! "$(sudo docker ps -q -f name=pihole)" ]; then
     if [ "$(sudo docker ps -aq -f status=exited -f name=pihole)" ]; then
         sudo docker rm pihole
     fi
-    sudo docker-compose up --detach
+    docker-compose up --detach
 fi
 
 # Retrieve random password
