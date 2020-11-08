@@ -12,6 +12,10 @@ sudo reboot
 
 ## Installing essentials
 
+### Pi-hole
+
+For more information, refer to [Pi-hole](../shared/pi-hole/README.md) page.
+
 ### Productivity Essentials
 
 For more information, refer to [Productivity Essentials](../shared/productivity-essentials/README.md) page.
