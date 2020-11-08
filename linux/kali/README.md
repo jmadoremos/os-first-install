@@ -16,6 +16,10 @@ sudo reboot
 
 For more information, refer to [Productivity Essentials](../shared/productivity-essentials/README.md) page.
 
+### Visual Studio Code
+
+For more information, refer to [Visual Studio Code (amd64)](../shared/code-amd64/README.md) page.
+
 ### Z Shell
 
 For more information, refer to [Z Shell](../shared/zsh/README.md) page.
