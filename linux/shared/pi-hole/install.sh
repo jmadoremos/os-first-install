@@ -21,3 +21,6 @@ curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/lin
 # Download latest start.sh
 echo "[] Downloading latest start.sh to ~/pi-hole..."
 curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/pi-hole/res/start.sh -o ~/pi-hole/start.sh
+
+# Granting access to ~/pi-hole/start.sh as executable
+chmod +x ~/pi-hole/start.sh
