@@ -23,7 +23,7 @@ mkdir ~/pi-hole &> /dev/null
 
 echo "[] Configuring ~/pi-hole..."
 cd ~/pi-hole &> /dev/null
-virtualenv venv --no-site-packages
+virtualenv venv
 source venv/bin/activate
 
 # Install docker-compose
