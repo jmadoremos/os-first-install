@@ -1,0 +1,26 @@
+version: "3"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      DNS1: 127.0.0.1
+      DNS2: 8.8.8.8
+      PROXY_LOCATION: pi.hole
+      ServerIP: 127.0.0.1
+      TZ: America/Chicago
+      VIRTUAL_HOST: pi.hole
+    # Volumes store your data between container upgrades
+    volumes:
+      - './etc-pihole/:/etc/pihole/'
+      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
