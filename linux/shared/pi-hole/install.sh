@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # Install docker
 echo -n "[] Running apt update..."
 sudo apt clean &> /dev/null
@@ -17,8 +15,14 @@ echo -n "[] Installing virtualenv as pre-requisite..."
 pip install virtualenv &> /dev/null
 echo " done"
 
-# Create ~/pi-hole directory if not exists
-echo "[] Creating ~/pi-hole directory, if not exists..."
+# Cleanup ~/pi-hole
+if [ -d "~/pi-hole" ]; then
+    echo "[] Deleting ~/pi-hole directory..."
+    sudo rm ~/pi-hole --recursive
+fi
+
+# Create ~/pi-hole directory
+echo "[] Creating ~/pi-hole directory..."
 mkdir ~/pi-hole &> /dev/null
 
 echo "[] Configuring ~/pi-hole..."
