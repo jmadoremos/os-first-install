@@ -9,8 +9,8 @@ sudo docker run -d \
     -p 80:80 \
     -p 443:443 \
     -e TZ="America/Chicago" \
-    -v "~/pi-hole/etc/pihole/:/etc/pihole/" \
-    -v "~/pi-hole/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
+    -v "~/pi-hole/etc-pihole/:/etc/pihole/" \
+    -v "~/pi-hole/etc-dnsmasq.d/:/etc/dnsmasq.d/" \
     --dns=127.0.0.1 --dns=1.1.1.1 \
     --restart=unless-stopped \
     --hostname pi.hole \
