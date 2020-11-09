@@ -2,6 +2,11 @@
 
 # https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
 
+# Define ~/pi-hole directory
+cd ~/pi-hole
+PIHOLE_DIR="${PIHOLE_DIR:-$(pwd)}"
+echo "Running pi-hole in directory: $PIHOLE_DIR"
+
 # Stop and remove existing pihole container
 if [ ! "$(sudo docker ps -q -f name=pihole)" ]; then
     if [ "$(sudo docker ps -aq -f status=exited -f name=pihole)" ]; then
@@ -17,9 +22,10 @@ sudo docker run -d \
     -p 80:80 \
     -p 443:443 \
     -e TZ="America/Chicago" \
-    -v "~/pi-hole/etc-pihole/:/etc/pihole/" \
-    -v "~/pi-hole/etc-dnsmasq.d/:/etc/dnsmasq.d/" \
-    --dns=127.0.0.1 --dns=1.1.1.1 \
+    -v "${PIHOLE_DIR}/etc/pihole/:/etc/pihole/" \
+    -v "${PIHOLE_DIR}/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
+    --dns=127.0.0.1 \
+    --dns=1.1.1.1 \
     --restart=unless-stopped \
     --hostname pi.hole \
     -e VIRTUAL_HOST="pi.hole" \
