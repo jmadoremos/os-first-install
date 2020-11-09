@@ -1,14 +1,24 @@
 #!/bin/bash
 
-# Run pihole container
-if [ ! "$(sudo docker ps -q -f name=pihole)" ]; then
-    if [ "$(sudo docker ps -aq -f status=exited -f name=pihole)" ]; then
-        sudo docker rm pihole
-    fi
-    docker-compose up --detach
-fi
+# https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
 
-# Retrieve random password
+sudo docker run -d \
+    --name pihole \
+    -p 53:53/tcp \
+    -p 53:53/udp \
+    -p 80:80 \
+    -p 443:443 \
+    -e TZ="America/Chicago" \
+    -v "~/pi-hole/etc/pihole/:/etc/pihole/" \
+    -v "~/pi-hole/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
+    --dns=127.0.0.1 --dns=1.1.1.1 \
+    --restart=unless-stopped \
+    --hostname pi.hole \
+    -e VIRTUAL_HOST="pi.hole" \
+    -e PROXY_LOCATION="pi.hole" \
+    -e ServerIP="127.0.0.1" \
+    pihole/pihole:latest
+
 printf 'Starting pihole container '
 for i in $(seq 1 20); do
     if [ "$(sudo docker inspect -f "{{.State.Health.Status}}" pihole)" == "healthy" ] ; then
