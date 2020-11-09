@@ -2,6 +2,14 @@
 
 # https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
 
+# Stop and remove existing pihole container
+if [ ! "$(sudo docker ps -q -f name=pihole)" ]; then
+    if [ "$(sudo docker ps -aq -f status=exited -f name=pihole)" ]; then
+        sudo docker rm pihole
+    fi
+fi
+
+# Run image as container
 sudo docker run -d \
     --name pihole \
     -p 53:53/tcp \
