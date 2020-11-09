@@ -20,8 +20,12 @@ fi
 echo "[] Creating ~/pi-hole directory..."
 mkdir ~/pi-hole &> /dev/null
 
-# Download latest docker-compose.yml
-echo "[] Downloading latest docker-compose.yml to ~/pi-hole..."
+# Download latest pihole image
+echo "[] Downloading latest pihole image..."
+docker pull --quiet pihole/pihole:latest
+
+# Download latest docker-run.sh
+echo "[] Downloading latest docker-run.sh to ~/pi-hole..."
 curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/pi-hole/res/docker-run.sh -o ~/pi-hole/docker-run.sh
 
 # Granting access to ~/pi-hole/docker-run.sh as executable
