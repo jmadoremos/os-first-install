@@ -22,7 +22,7 @@ mkdir ~/pi-hole &> /dev/null
 
 # Download latest pihole image
 echo "[] Downloading latest pihole image..."
-docker pull --quiet pihole/pihole:latest
+sudo docker pull pihole/pihole:latest
 
 # Download latest docker-run.sh
 echo "[] Downloading latest docker-run.sh to ~/pi-hole..."
