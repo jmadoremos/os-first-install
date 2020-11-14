@@ -41,7 +41,7 @@ sudo docker pull openhab/openhab:latest
 
 # Download latest docker-run.sh
 echo "[] Downloading latest docker-run.sh to installation directory..."
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/openhab/res/docker-run.sh -o $INSTALL_DIR/docker-run.sh
+sudo curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/openhab/res/docker-run.sh -o $INSTALL_DIR/docker-run.sh
 
 # Granting access to docker-run.sh as executable
-chmod +x $INSTALL_DIR/docker-run.sh
+sudo chmod +x $INSTALL_DIR/docker-run.sh
