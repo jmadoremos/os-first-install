@@ -12,6 +12,10 @@ echo " done"
 
 echo -n "[] Installing docker as pre-requisite..."
 sudo apt install -y docker.io &> /dev/null
+if [[ $? -eq 1 ]]; then
+    printf "\n   > Docker installation failed. Please try again."
+    exit 1
+fi
 echo " done"
 
 # Create installation directory
