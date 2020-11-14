@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Define variables
+INSTALL_DIR="/home/$(id -u -n)/pi-hole"
+echo "[] Installing in directory: $INSTALL_DIR"
+
 # Install docker
 echo -n "[] Running apt update..."
 sudo apt clean &> /dev/null
@@ -10,20 +14,17 @@ echo -n "[] Installing docker as pre-requisite..."
 sudo apt install -y docker.io &> /dev/null
 echo " done"
 
-# Create ~/pi-hole directory
-echo "[] Creating ~/pi-hole directory if not exists..."
-mkdir -p ~/pi-hole &> /dev/null
-mkdir -p ~/pi-hole/etc &> /dev/null
-mkdir -p ~/pi-hole/etc/pihole &> /dev/null
-mkdir -p ~/pi-hole/etc/dnsmasq.d &> /dev/null
+# Create installation directory
+echo "[] Creating installation directory if not exists..."
+mkdir -p $INSTALL_DIR &> /dev/null
 
 # Download latest pihole image
 echo "[] Downloading latest pihole image..."
 sudo docker pull pihole/pihole:latest
 
 # Download latest docker-run.sh
-echo "[] Downloading latest docker-run.sh to ~/pi-hole..."
-curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/pi-hole/res/docker-run.sh -o ~/pi-hole/docker-run.sh
+echo "[] Downloading latest docker-run.sh to installation directory..."
+curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/linux/shared/pi-hole/res/docker-run.sh -o $INSTALL_DIR/docker-run.sh
 
-# Granting access to ~/pi-hole/docker-run.sh as executable
-chmod +x ~/pi-hole/docker-run.sh
+# Granting access to docker-run.sh as executable
+chmod +x $INSTALL_DIR/docker-run.sh
