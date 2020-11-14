@@ -16,7 +16,7 @@ echo " done"
 
 # Create installation directory
 echo "[] Creating installation directory if not exists..."
-mkdir -p $INSTALL_DIR &> /dev/null
+mkdir -p $INSTALL_DIR
 
 # Download latest pihole image
 echo "[] Downloading latest pihole image..."
