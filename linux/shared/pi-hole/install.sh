@@ -10,15 +10,12 @@ echo -n "[] Installing docker as pre-requisite..."
 sudo apt install -y docker.io &> /dev/null
 echo " done"
 
-# Cleanup ~/pi-hole
-if [ -d "~/pi-hole" ]; then
-    echo "[] Deleting ~/pi-hole directory..."
-    sudo rm ~/pi-hole --recursive
-fi
-
 # Create ~/pi-hole directory
-echo "[] Creating ~/pi-hole directory..."
-mkdir ~/pi-hole &> /dev/null
+echo "[] Creating ~/pi-hole directory if not exists..."
+mkdir -p ~/pi-hole &> /dev/null
+mkdir -p ~/pi-hole/etc &> /dev/null
+mkdir -p ~/pi-hole/etc/pihole &> /dev/null
+mkdir -p ~/pi-hole/etc/dnsmasq.d &> /dev/null
 
 # Download latest pihole image
 echo "[] Downloading latest pihole image..."
