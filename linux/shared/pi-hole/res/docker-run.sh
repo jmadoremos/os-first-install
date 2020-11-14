@@ -5,6 +5,7 @@
 # Define variables
 CONTAINER_NAME="pihole"
 INSTALL_DIR="/home/$(id -u -n)/pi-hole"
+TIMEZONE="Asia/Manila"
 echo "[] Running in directory: $INSTALL_DIR"
 
 # Stop and remove existing container
@@ -22,7 +23,7 @@ sudo docker run -d \
     -p 53:53/udp \
     -p 80:80 \
     -p 443:443 \
-    -e TZ="America/Chicago" \
+    -e TZ="${TIMEZONE}" \
     -v "${INSTALL_DIR}/etc/pihole/:/etc/pihole/" \
     -v "${INSTALL_DIR}/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
     --dns=127.0.0.1 \
