@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
-
 # Define variables
 CONTAINER_NAME="pihole"
 INSTALL_DIR="/home/$(id -u -n)/pi-hole"
@@ -11,13 +9,15 @@ echo "[] Running in directory: $INSTALL_DIR"
 
 # Stop and remove existing container
 echo "[] Removing \"$CONTAINER_NAME\" container if exists..."
-if [ ! "$(sudo docker ps -q -f name=$CONTAINER_NAME)" ]; then
+if [ "$(sudo docker ps -q -f name=$CONTAINER_NAME)" ]; then
+    sudo docker stop $CONTAINER_NAME &> /dev/null
     if [ "$(sudo docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
-        sudo docker rm $CONTAINER_NAME
+        sudo docker rm $CONTAINER_NAME &> /dev/null
     fi
 fi
 
 # Run image as container
+echo "[] Starting \"$CONTAINER_NAME\" container..."
 sudo docker run -d \
     --name $CONTAINER_NAME \
     -p 53:53/tcp \
@@ -36,15 +36,15 @@ sudo docker run -d \
     -e ServerIP="127.0.0.1" \
     pihole/pihole:latest
 
-printf "Starting $CONTAINER_NAME container "
+echo -n "[] Checking status"
 for i in $(seq 1 $TIMEOUT); do
     if [ "$(sudo docker inspect -f "{{.State.Health.Status}}" $CONTAINER_NAME)" == "healthy" ] ; then
-        printf ' OK'
-        echo -e "\n$(sudo docker logs $CONTAINER_NAME 2> /dev/null | grep 'password:') for your pi-hole: https://${IP}/admin/"
+        echo " OK"
+        echo "$(sudo docker logs $CONTAINER_NAME 2> /dev/null | grep 'password:') for your pi-hole."
         exit 0
     else
         sleep 3
-        printf '.'
+        echo -n "."
     fi
 
     if [ $i -eq $TIMEOUT ] ; then
