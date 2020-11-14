@@ -12,6 +12,10 @@ sudo reboot
 
 ## Installing essentials
 
+### OpenHAB
+
+For more information, refer to [OpenHAB](../shared/openhab/README.md) page.
+
 ### Pi-hole
 
 For more information, refer to [Pi-hole](../shared/pi-hole/README.md) page.
