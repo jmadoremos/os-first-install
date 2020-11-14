@@ -23,7 +23,7 @@ fi
 echo "[] Starting \"$CONTAINER_NAME\" container..."
 sudo docker run -d \
     --name $CONTAINER_NAME \
-    -e EXTRA_JAVA_OPTS: "-Duser.timezone=$TIMEZONE" \
+    -e EXTRA_JAVA_OPTS="-Duser.timezone=$TIMEZONE" \
     -e GROUP_ID=$(id -g $OPENHAB_USER) \
     -e OPENHAB_HTTP_PORT="${HTTP_PORT}" \
     -e OPENHAB_HTTPS_PORT="${HTTPS_PORT}" \
