@@ -5,6 +5,7 @@
 # Define variables
 CONTAINER_NAME="pihole"
 INSTALL_DIR="/home/$(id -u -n)/pi-hole"
+TIMEOUT=20
 TIMEZONE="Asia/Manila"
 echo "[] Running in directory: $INSTALL_DIR"
 
@@ -36,7 +37,7 @@ sudo docker run -d \
     pihole/pihole:latest
 
 printf "Starting $CONTAINER_NAME container "
-for i in $(seq 1 20); do
+for i in $(seq 1 $TIMEOUT); do
     if [ "$(sudo docker inspect -f "{{.State.Health.Status}}" $CONTAINER_NAME)" == "healthy" ] ; then
         printf ' OK'
         echo -e "\n$(sudo docker logs $CONTAINER_NAME 2> /dev/null | grep 'password:') for your pi-hole: https://${IP}/admin/"
@@ -46,7 +47,7 @@ for i in $(seq 1 20); do
         printf '.'
     fi
 
-    if [ $i -eq 20 ] ; then
+    if [ $i -eq $TIMEOUT ] ; then
         echo -e "\nTimed out waiting for container to start, consult the container logs for more info (\`sudo docker logs $CONTAINER_NAME\`)"
         exit 1
     fi
