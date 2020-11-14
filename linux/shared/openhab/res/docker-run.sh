@@ -2,6 +2,8 @@
 
 # Define variables
 CONTAINER_NAME="openhab"
+HTTP_PORT=8080
+HTTPS_PORT=8443
 INSTALL_DIR="/home/$(id -u -n)/openhab"
 OPENHAB_USER="openhab"
 TIMEOUT=20
@@ -20,8 +22,10 @@ fi
 echo "[] Starting \"$CONTAINER_NAME\" container..."
 sudo docker run -d \
     --name $CONTAINER_NAME \
-    -e USER_ID=$(id -u $OPENHAB_USER) \
     -e GROUP_ID=$(id -g $OPENHAB_USER) \
+    -e OPENHAB_HTTP_PORT="${HTTP_PORT}" \
+    -e OPENHAB_HTTPS_PORT="${HTTPS_PORT}" \
+    -e USER_ID=$(id -u $OPENHAB_USER) \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "${INSTALL_DIR}/conf:/openhab/conf" \
     -v "${INSTALL_DIR}/userdata:/openhab/userdata" \
