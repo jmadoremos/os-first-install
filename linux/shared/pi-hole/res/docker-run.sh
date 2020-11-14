@@ -2,28 +2,29 @@
 
 # https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
 
-# Define ~/pi-hole directory
-cd ~/pi-hole
-PIHOLE_DIR="${PIHOLE_DIR:-$(pwd)}"
-echo "Running pi-hole in directory: $PIHOLE_DIR"
+# Define variables
+CONTAINER_NAME="pihole"
+INSTALL_DIR="/home/$(id -u -n)/pi-hole"
+echo "[] Running in directory: $INSTALL_DIR"
 
-# Stop and remove existing pihole container
-if [ ! "$(sudo docker ps -q -f name=pihole)" ]; then
-    if [ "$(sudo docker ps -aq -f status=exited -f name=pihole)" ]; then
-        sudo docker rm pihole
+# Stop and remove existing container
+echo "[] Removing \"$CONTAINER_NAME\" container if exists..."
+if [ ! "$(sudo docker ps -q -f name=$CONTAINER_NAME)" ]; then
+    if [ "$(sudo docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
+        sudo docker rm $CONTAINER_NAME
     fi
 fi
 
 # Run image as container
 sudo docker run -d \
-    --name pihole \
+    --name $CONTAINER_NAME \
     -p 53:53/tcp \
     -p 53:53/udp \
     -p 80:80 \
     -p 443:443 \
     -e TZ="America/Chicago" \
-    -v "${PIHOLE_DIR}/etc/pihole/:/etc/pihole/" \
-    -v "${PIHOLE_DIR}/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
+    -v "${INSTALL_DIR}/etc/pihole/:/etc/pihole/" \
+    -v "${INSTALL_DIR}/etc/dnsmasq.d/:/etc/dnsmasq.d/" \
     --dns=127.0.0.1 \
     --dns=1.1.1.1 \
     --restart=unless-stopped \
@@ -33,11 +34,11 @@ sudo docker run -d \
     -e ServerIP="127.0.0.1" \
     pihole/pihole:latest
 
-printf 'Starting pihole container '
+printf "Starting $CONTAINER_NAME container "
 for i in $(seq 1 20); do
-    if [ "$(sudo docker inspect -f "{{.State.Health.Status}}" pihole)" == "healthy" ] ; then
+    if [ "$(sudo docker inspect -f "{{.State.Health.Status}}" $CONTAINER_NAME)" == "healthy" ] ; then
         printf ' OK'
-        echo -e "\n$(sudo docker logs pihole 2> /dev/null | grep 'password:') for your pi-hole: https://${IP}/admin/"
+        echo -e "\n$(sudo docker logs $CONTAINER_NAME 2> /dev/null | grep 'password:') for your pi-hole: https://${IP}/admin/"
         exit 0
     else
         sleep 3
@@ -45,7 +46,7 @@ for i in $(seq 1 20); do
     fi
 
     if [ $i -eq 20 ] ; then
-        echo -e "\nTimed out waiting for Pi-hole start, consult check your container logs for more info (\`sudo docker logs pihole\`)"
+        echo -e "\nTimed out waiting for container to start, consult the container logs for more info (\`sudo docker logs $CONTAINER_NAME\`)"
         exit 1
     fi
 done;
