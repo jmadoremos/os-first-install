@@ -15,5 +15,5 @@ curl -L https://raw.githubusercontent.com/jmadoremos/os-first-install/master/lin
 > Before executing the command below, you can modify certain aspects of the container by changing the values under `#Define variables` section in **~/openhab/docker-run.sh** file.
 
 ```bash
-./openhab/docker-run.sh
+~/openhab/docker-run.sh
 ```
