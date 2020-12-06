@@ -12,16 +12,16 @@ echo "[] Running in directory: $INSTALL_DIR"
 
 # Stop and remove existing container
 echo "[] Removing \"$CONTAINER_NAME\" container if exists..."
-if [ "$(sudo docker ps -q -f name=$CONTAINER_NAME)" ]; then
-    sudo docker stop $CONTAINER_NAME &> /dev/null
-    if [ "$(sudo docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
-        sudo docker rm $CONTAINER_NAME &> /dev/null
+if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+    docker stop $CONTAINER_NAME &> /dev/null
+    if [ "$(docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
+        docker rm $CONTAINER_NAME &> /dev/null
     fi
 fi
 
 # Run image as container
 echo "[] Starting \"$CONTAINER_NAME\" container..."
-sudo docker run -d \
+docker run -d \
     --name $CONTAINER_NAME \
     -e EXTRA_JAVA_OPTS="-Duser.timezone=$TIMEZONE" \
     -e GROUP_ID=$(id -g $OPENHAB_USER) \
@@ -38,7 +38,7 @@ sudo docker run -d \
 
 echo -n "[] Checking status"
 for i in $(seq 1 $TIMEOUT); do
-    if [ "$(sudo docker inspect -f "{{.State.Status}}" $CONTAINER_NAME)" == "running" ] ; then
+    if [ "$(docker inspect -f "{{.State.Status}}" $CONTAINER_NAME)" == "running" ] ; then
         echo " running."
         exit 0
     else
@@ -48,7 +48,7 @@ for i in $(seq 1 $TIMEOUT); do
 
     if [ $i -eq $TIMEOUT ] ; then
         echo "** timed out **"
-        echo -e "Consult the container logs for more info (\`sudo docker logs $CONTAINER_NAME\`)"
+        echo -e "Consult the container logs for more info (\`docker logs $CONTAINER_NAME\`)"
         exit 1
     fi
 done;

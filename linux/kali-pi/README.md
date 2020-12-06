@@ -12,13 +12,17 @@ sudo reboot
 
 ## Installing essentials
 
+### Docker
+
+For more information, refer to [Docker](../shared/docker/README.md) page.
+
 ### OpenHAB
 
-For more information, refer to [OpenHAB](../shared/openhab/README.md) page.
+For more information, refer to [OpenHAB](../shared/docker-openhab/README.md) page.
 
 ### Pi-hole
 
-For more information, refer to [Pi-hole](../shared/pi-hole/README.md) page.
+For more information, refer to [Pi-hole](../shared/docker-pi-hole/README.md) page.
 
 ### Productivity Essentials
 
